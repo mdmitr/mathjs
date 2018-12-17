@@ -42715,7 +42715,7 @@ function factory(type, config, load, typed, math) {
       var _c = name.charAt(i);
 
       var isValidAlpha = function isValidAlpha(p) {
-        return /^[a-zA-Zа-яА-Я.]$/.test(p);
+        return /^[a-zA-Zа-яА-Я.%]$/.test(p);
       };
 
       var _isDigit = function _isDigit(c) {
