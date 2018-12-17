@@ -13,5 +13,8 @@ module.exports = [
   require('./function/splitUnit'),
 
   // physical constants
-  require('./physicalConstants')
+  require('./physicalConstants'),
+
+  // create units systems
+  require('./function/getUnitsSystem')
 ]

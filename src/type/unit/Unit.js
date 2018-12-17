@@ -3150,6 +3150,14 @@ function factory (type, config, load, typed, math) {
     }
   }
 
+  Unit.getUnitsSystem = function(name) {
+    return UNIT_SYSTEMS[name];
+  }
+
+  Unit.createUnitsSystem = function(name, obj) {
+    return UNIT_SYSTEMS[name] = obj;
+  }
+
   /**
    * Wrapper around createUnitSingle.
    * Example:
