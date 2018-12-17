@@ -55,6 +55,10 @@ function factory (type, config, load, typed) {
    * @throws {Error}
    */
   function parse (expr, options) {
+    // remove all 'д.е.', 'де'
+    expr = expr.replace(/д\.е\./g, "");
+    expr = expr.replace(/де/g, "");
+
     if (arguments.length !== 1 && arguments.length !== 2) {
       throw new ArgumentsError('parse', arguments.length, 1, 2)
     }
@@ -427,7 +431,7 @@ function factory (type, config, load, typed) {
    * @return {boolean}
    */
   parse.isValidLatinOrGreek = function isValidLatinOrGreek (c) {
-    return /^[a-zA-Z_$\u00C0-\u02AF\u0370-\u03FF\u2100-\u214F]$/.test(c)
+    return /^[a-zA-Zа-яА-Я_$\u00C0-\u02AF\u0370-\u03FF\u2100-\u214F]$/.test(c)
   }
 
   /**
