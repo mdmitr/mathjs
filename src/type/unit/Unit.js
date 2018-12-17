@@ -3136,7 +3136,7 @@ function factory (type, config, load, typed, math) {
       const c = name.charAt(i)
 
       const isValidAlpha = function (p) {
-        return /^[a-zA-Zа-яА-Я.]$/.test(p)
+        return /^[a-zA-Zа-яА-Я.%]$/.test(p)
       }
 
       const isDigit = function (c) {
