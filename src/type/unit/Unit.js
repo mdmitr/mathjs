@@ -1084,7 +1084,7 @@ function factory (type, config, load, typed, math) {
 
     let str = strNum
     if (nNum > 0 && nDen > 0) {
-      str += ' / '
+      str += '/'
     }
     str += strDen
 
