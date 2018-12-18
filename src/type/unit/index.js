@@ -16,5 +16,6 @@ module.exports = [
   require('./physicalConstants'),
 
   // create units systems
-  require('./function/getUnitsSystem')
+  require('./function/getUnitsSystem'),
+  require('./function/createUnitsSystem')
 ]
