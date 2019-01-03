@@ -7,7 +7,7 @@
  * mathematical functions, and a flexible expression parser.
  *
  * @version 5.4.0
- * @date    2018-12-18
+ * @date    2019-01-03
  *
  * @license
  * Copyright (C) 2013-2018 Jos de Jong <wjosdejong@gmail.com>
@@ -43304,10 +43304,12 @@ function factory(type, config, load, typed, math) {
 
   setLazyConstant(math, 'atomicMass', function () {
     return fixedUnit('1.66053892173e-27 kg');
-  });
+  }); //setLazyConstant(math, 'avogadro', function () { return fixedUnit('6.0221412927e23 mol^-1') })
+
   setLazyConstant(math, 'avogadro', function () {
-    return fixedUnit('6.0221412927e23 mol^-1');
-  });
+    return fixedUnit('6.02214085774e23 mol^-1');
+  }); // CODATA year 2014 version
+
   setLazyConstant(math, 'boltzmann', function () {
     return fixedUnit('1.380648813e-23 J K^-1');
   });
