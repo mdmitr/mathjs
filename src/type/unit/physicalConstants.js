@@ -49,7 +49,8 @@ function factory (type, config, load, typed, math) {
 
   // Physico-chemical constants
   setLazyConstant(math, 'atomicMass', function () { return fixedUnit('1.66053892173e-27 kg') })
-  setLazyConstant(math, 'avogadro', function () { return fixedUnit('6.0221412927e23 mol^-1') })
+  //setLazyConstant(math, 'avogadro', function () { return fixedUnit('6.0221412927e23 mol^-1') })
+  setLazyConstant(math, 'avogadro', function () { return fixedUnit('6.02214085774e23 mol^-1') }) // CODATA year 2014 version
   setLazyConstant(math, 'boltzmann', function () { return fixedUnit('1.380648813e-23 J K^-1') })
   setLazyConstant(math, 'faraday', function () { return fixedUnit('96485.336521 C mol^-1') })
   setLazyConstant(math, 'firstRadiation', function () { return fixedUnit('3.7417715317e-16 W m^2') })
