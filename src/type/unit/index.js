@@ -18,8 +18,5 @@ module.exports = [
   // create units systems
   require('./function/getUnitsSystem'),
   require('./function/createUnitsSystem'),
-
-  // value
-  require('./function/value')
 ]
 
