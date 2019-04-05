@@ -195,7 +195,8 @@ function factory (type, config, load, typed, math) {
     // . = 46
     // % = 37
     var code = text.charCodeAt(index);
-    while (code >= 48 && code <= 57 || code >= 65 && code <= 90 || code >= 97 && code <= 122 || code >= 1040 && code <= 1103 || code == 37 || code == 46 ) {
+    while (code >= 48 && code <= 57 || code >= 65 && code <= 90 || code >= 97 && code <= 122 || 
+          code >= 1040 && code <= 1103 || code == 37 || code == 46 || code == 95) {
       unitName += c;
       next();
       code = text.charCodeAt(index);
@@ -3136,7 +3137,7 @@ function factory (type, config, load, typed, math) {
       const c = name.charAt(i)
 
       const isValidAlpha = function (p) {
-        return /^[a-zA-Zа-яА-Я.%]$/.test(p)
+        return /^[a-zA-Zа-яА-Я._%]$/.test(p)
       }
 
       const isDigit = function (c) {
