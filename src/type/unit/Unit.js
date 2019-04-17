@@ -1458,7 +1458,7 @@ function factory (type, config, load, typed, math) {
       'з': { name: 'з', value: 1e-63, scientific: true },
       'и': { name: 'и', value: 1e-72, scientific: true }
     },
-    BINARY_SHORT: {
+    BINARY_SHORT_SI: {
       '': { name: '', value: 1, scientific: true },
       'k': { name: 'k', value: 1e3, scientific: true },
       'M': { name: 'M', value: 1e6, scientific: true },
@@ -1467,8 +1467,10 @@ function factory (type, config, load, typed, math) {
       'P': { name: 'P', value: 1e15, scientific: true },
       'E': { name: 'E', value: 1e18, scientific: true },
       'Z': { name: 'Z', value: 1e21, scientific: true },
-      'Y': { name: 'Y', value: 1e24, scientific: true },
-
+      'Y': { name: 'Y', value: 1e24, scientific: true }
+    },
+    BINARY_SHORT_IEC: {
+      '': { name: '', value: 1, scientific: true },
       'Ki': { name: 'Ki', value: 1024, scientific: true },
       'Mi': { name: 'Mi', value: Math.pow(1024, 2), scientific: true },
       'Gi': { name: 'Gi', value: Math.pow(1024, 3), scientific: true },
@@ -1488,7 +1490,7 @@ function factory (type, config, load, typed, math) {
       'З': { name: 'З', value: 1e21, scientific: true },
       'И': { name: 'И', value: 1e24, scientific: true },
     },
-    BINARY_LONG: {
+    BINARY_LONG_SI: {
       '': { name: '', value: 1, scientific: true },
       'kilo': { name: 'kilo', value: 1e3, scientific: true },
       'mega': { name: 'mega', value: 1e6, scientific: true },
@@ -1497,8 +1499,10 @@ function factory (type, config, load, typed, math) {
       'peta': { name: 'peta', value: 1e15, scientific: true },
       'exa': { name: 'exa', value: 1e18, scientific: true },
       'zetta': { name: 'zetta', value: 1e21, scientific: true },
-      'yotta': { name: 'yotta', value: 1e24, scientific: true },
-
+      'yotta': { name: 'yotta', value: 1e24, scientific: true }
+    },
+    BINARY_LONG_IEC: {
+      '': { name: '', value: 1, scientific: true },
       'kibi': { name: 'kibi', value: 1024, scientific: true },
       'mebi': { name: 'mebi', value: Math.pow(1024, 2), scientific: true },
       'gibi': { name: 'gibi', value: Math.pow(1024, 3), scientific: true },
@@ -1524,18 +1528,9 @@ function factory (type, config, load, typed, math) {
     }
   }
 
-  // Add a prefix list for both short and long prefixes (for example for ohm and bar which support both Mohm and megaohm, mbar and millibar):
-  PREFIXES.SHORTLONG = {}
-  for (let key in PREFIXES.SHORT) {
-    if (PREFIXES.SHORT.hasOwnProperty(key)) {
-      PREFIXES.SHORTLONG[key] = PREFIXES.SHORT[key]
-    }
-  }
-  for (let key in PREFIXES.LONG) {
-    if (PREFIXES.LONG.hasOwnProperty(key)) {
-      PREFIXES.SHORTLONG[key] = PREFIXES.LONG[key]
-    }
-  }
+  PREFIXES.SHORTLONG = Object.assign(PREFIXES.SHORT, PREFIXES.LONG)
+  PREFIXES.BINARY_SHORT = Object.assign(PREFIXES.BINARY_SHORT_SI, PREFIXES.BINARY_SHORT_IEC)
+  PREFIXES.BINARY_LONG = Object.assign(PREFIXES.BINARY_LONG_SI, PREFIXES.BINARY_LONG_IEC)
 
   /* Internally, each unit is represented by a value and a dimension array. The elements of the dimensions array have the following meaning:
    * Index  Dimension
